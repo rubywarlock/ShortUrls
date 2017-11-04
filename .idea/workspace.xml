@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e2e4240-d13a-4151-b7f0-251693ea123f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/short_url.rb" afterPath="$PROJECT_DIR$/app/models/short_url.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/short_urls/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/short_urls/_form.html.erb" />
     </list>
     <ignored path="ShortUrlApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,8 +61,8 @@
       <file leaf-file-name="short_urls_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/short_urls_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+            <state relative-caret-position="212">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,8 +103,8 @@
         <option value="$PROJECT_DIR$/db/migrate/20171104154950_delete_unnecessary_fields_from_short_urls.rb" />
         <option value="$PROJECT_DIR$/app/views/short_urls/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/short_url.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
       </list>
     </option>
   </component>
@@ -693,12 +690,12 @@
       <updated>1509785144540</updated>
       <workItem from="1509785146396" duration="6546000" />
       <workItem from="1509799178425" duration="83000" />
-      <workItem from="1509799511784" duration="10503000" />
+      <workItem from="1509799511784" duration="10613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17132000" />
+    <option name="totallyTimeSpent" value="17242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="182" y="211" width="1915" height="1034" extended-state="0" />
@@ -1095,8 +1092,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/short_urls_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        <state relative-caret-position="212">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
