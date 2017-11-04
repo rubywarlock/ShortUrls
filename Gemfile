@@ -41,6 +41,8 @@ gem 'shortener'
 
 gem 'faraday'
 
+gem 'bootstrap-sass', '~> 3.3.3'
+
 gem 'http'
 gem 'slim'
 gem 'slim-rails'

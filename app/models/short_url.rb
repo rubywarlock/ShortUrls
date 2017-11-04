@@ -1,7 +1,6 @@
 class ShortUrl < ApplicationRecord
   belongs_to :user
-
-
+  
   validate :url_check
   validates :user_id, presence: true
   validates :short_url, uniqueness: true
