@@ -3,6 +3,7 @@ class ShortUrl < ApplicationRecord
 
   before_save :generate_short_url
   validate :url_check
+  validates_length_of :short_url, :maximum => 5, :allow_blank => true
 
   def url_check
     #uri = URI(self.original_url.to_s)
@@ -29,6 +30,9 @@ class ShortUrl < ApplicationRecord
 
   private
   def generate_short_url
+    puts "=================================================================================================="
+    puts self.short_url
+    puts "=================================================================================================="
     chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
     self.short_url ||= 6.times.map { chars.sample }.join
   end

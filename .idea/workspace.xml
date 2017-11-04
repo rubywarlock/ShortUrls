@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e2e4240-d13a-4151-b7f0-251693ea123f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/short_url.rb" afterPath="$PROJECT_DIR$/app/models/short_url.rb" />
     </list>
     <ignored path="ShortUrlApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,28 +41,28 @@
       <file leaf-file-name="short_url.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/short_url.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="374">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="short_urls_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="short_urls_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/short_urls_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="-213">
+              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -124,15 +124,15 @@
         <option value="$PROJECT_DIR$/app/views/home_pages/Index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home_pages/Index.slim" />
         <option value="$PROJECT_DIR$/app/views/short_urls/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/views/users/index.slim" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/models/short_url.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20171104154607_delete_url_field_from_short_urls.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20171104154950_delete_unnecessary_fields_from_short_urls.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/short_urls_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/short_url.rb" />
       </list>
     </option>
   </component>
@@ -143,8 +143,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="692" />
-    <option name="y" value="280" />
+    <option name="x" value="182" />
+    <option name="y" value="211" />
     <option name="width" value="1915" />
     <option name="height" value="1034" />
   </component>
@@ -718,15 +718,15 @@
       <updated>1509785144540</updated>
       <workItem from="1509785146396" duration="6546000" />
       <workItem from="1509799178425" duration="83000" />
-      <workItem from="1509799511784" duration="8645000" />
+      <workItem from="1509799511784" duration="9381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15274000" />
+    <option name="totallyTimeSpent" value="16010000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="692" y="280" width="1915" height="1034" extended-state="0" />
+    <frame x="182" y="211" width="1915" height="1034" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20010532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1078,26 +1078,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/short_urls_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20171104154607_delete_url_field_from_short_urls.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/short_url.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1112,8 +1096,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="374">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/short_url.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/short_urls_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding />
         </state>
       </provider>
