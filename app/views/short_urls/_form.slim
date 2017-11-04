@@ -1,0 +1,27 @@
+= form_with(model: short_url, local: true) do |form|
+  - if short_url.errors.any?
+    div id="error_explanation"
+      h4
+        = pluralize(short_url.errors.count, "error")
+        |prohibited this short_url from being saved:
+      - short_url.errors.full_messages.each do |message|
+        div class="alert alert-danger"= message
+
+  = form.hidden_field :user_id, value: current_user.id if user_signed_in?
+
+  div class="form-group"
+    = form.label :original_url
+    = form.text_area :original_url, id: :short_url_original_url, class: "form-control"
+
+  div class="form-group"
+    = form.label :short_url
+    = form.text_field :short_url, id: :short_url_short_url, class: "form-control"
+
+  div class="form-group"
+    div class="form-check"
+      label class="form-check-label"
+      = form.check_box :shared, class: "form-check-input"
+      |  Shared
+
+  div class="form-group"
+    = form.submit class: "btn btn-primary"

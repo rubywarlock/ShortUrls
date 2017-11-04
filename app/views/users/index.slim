@@ -1,6 +1,6 @@
 p id="notice"= notice
 
-h1 Users
+h3 Users
 
 table class="table table-striped"
 	thead
@@ -10,10 +10,6 @@ table class="table table-striped"
 	tbody
 		- @users.each do |user|
 			tr
-				td= user.email
+				td= link_to user.email, user
 /td= link_to 'Edit', edit_devise_user_path(user)
 /td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-br
-
-= link_to 'New User', new_user_registration_path

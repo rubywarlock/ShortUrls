@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    #@shared_urls = @user.short_urls.where(shared: true).and('created_at <= ?', 1.minute.ago)
+    @shared_urls = @user.short_urls.where(shared: true)
   end
 
   # GET /users/new

@@ -1,0 +1,22 @@
+h3 Show User
+
+h4 SHARED URLs
+
+table class="table table-striped"
+  thead
+    tr
+      th original url
+      th short url
+      th shared
+      th collspan="2"
+
+  tbody
+    - @shared_urls.each do |url|
+      tr
+        td= url.original
+        td= link_to url.short
+        td= url.shared
+        td= link_to 'Edit', edit_short_url_path(url)
+        td= link_to 'Destroy', url, method: :delete, data: {confirm: 'Are you sure?'}
+
+= link_to "Add URL", new_short_url_path

@@ -41,7 +41,9 @@ gem 'shortener'
 
 gem 'faraday'
 
-gem 'bootstrap-sass', '~> 3.3.3'
+#gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jquery-rails'
 
 gem 'http'
 gem 'slim'

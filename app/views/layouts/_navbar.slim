@@ -1,5 +1,21 @@
-nav class="navbar navbar-default"
-  ul class="nav navbar-nav"
-    li= link_to "USERS", users_path
-    li= link_to "SHARED URLS", short_urls_path
-    li= link_to "ALL URLS", short_urls_path
+nav class="navbar navbar-expand-lg navbar-light bg-light"
+  div class="container-fluid"
+    ul class="nav nav-pills"
+      li class="nav-item"= link_to "USERS", users_path, class: "nav-link"
+      li class="nav-item"= link_to "SHARED URLS", shared_urls_path, class: "nav-link"
+      li class="nav-item"= link_to "ALL URLS", all_urls_path, class: "nav-link"
+    div class="form-inline" id="navbarNavDropdown"
+      ul class="navbar-nav mr-auto"
+        - unless user_signed_in?
+          li class="nav-item dropdown"
+            a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              |SIGN UP or SIGN IN
+            div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+              = link_to "SIGN UP", new_user_registration_path, class: "dropdown-item"
+              = link_to "SIGN IN", new_user_session_path, class: "dropdown-item"
+        - if user_signed_in?
+          li class="nav-item dropdown"
+            a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              = current_user.email
+            div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+              = link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "dropdown-item"

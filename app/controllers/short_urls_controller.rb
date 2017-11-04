@@ -4,12 +4,14 @@ class ShortUrlsController < ApplicationController
   # GET /short_urls
   # GET /short_urls.json
   def index
-    @short_urls = ShortUrl.all
+    @short_urls = request.path_info.include?('shared') ? ShortUrl.where('shared = ? AND created_at >= ?', true, 1.minute.ago) : ShortUrl.all
+    #@short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
   end
 
   # GET /short_urls/1
   # GET /short_urls/1.json
   def show
+    redirect_to @short_url.original_url
   end
 
   def show_short_url
@@ -32,8 +34,8 @@ class ShortUrlsController < ApplicationController
 
     respond_to do |format|
       if @short_url.save
-        format.html { redirect_to @short_url, notice: 'Short url was successfully created.' }
-        format.json { render :show, status: :created, location: @short_url }
+        format.html { redirect_to user_path(current_user), notice: 'Short url was successfully created.' }
+        format.json { render :show, status: :created, location: cerrent_user }
       else
         format.html { render :new }
         format.json { render json: @short_url.errors, status: :unprocessable_entity }
@@ -46,8 +48,8 @@ class ShortUrlsController < ApplicationController
   def update
     respond_to do |format|
       if @short_url.update(short_url_params)
-        format.html { redirect_to @short_url, notice: 'Short url was successfully updated.' }
-        format.json { render :show, status: :ok, location: @short_url }
+        format.html { redirect_to user_path(current_user), notice: 'Short url was successfully updated.' }
+        format.json { render :show, status: :ok, location: cerrent_user }
       else
         format.html { render :edit }
         format.json { render json: @short_url.errors, status: :unprocessable_entity }
@@ -73,6 +75,6 @@ class ShortUrlsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def short_url_params
-      params.require(:short_url).permit(:user_id, :original_url, :short_url)
+      params.require(:short_url).permit(:user_id, :shared, :original_url, :short_url)
     end
 end
