@@ -1,5 +1,6 @@
 class ShortUrl < ApplicationRecord
   include Rails.application.routes.url_helpers
+  require 'net/http'
 
   belongs_to :user
   before_save :generate_short_url
