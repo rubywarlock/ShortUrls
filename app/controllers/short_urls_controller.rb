@@ -4,7 +4,7 @@ class ShortUrlsController < ApplicationController
   # GET /short_urls
   # GET /short_urls.json
   def index
-    @short_urls = request.path_info.include?('shared') ? ShortUrl.where('shared = ? AND created_at >= ?', true, 1.minute.ago) : ShortUrl.all
+    @short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
     #@short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
   end
 
