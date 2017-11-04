@@ -10,11 +10,7 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :short_url_user_id %>
-  </div>
+	<%= form.hidden_field :user_id, value: current_user.id if user_signed_in? %>
 
   <div class="field">
     <%= form.label :original_url %>
