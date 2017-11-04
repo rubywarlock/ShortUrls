@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104154950) do
+ActiveRecord::Schema.define(version: 20171104170741) do
 
   create_table "short_urls", force: :cascade do |t|
     t.integer "user_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20171104154950) do
     t.datetime "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "shared"
+    t.index ["short_url"], name: "index_short_urls_on_short_url", unique: true
     t.index ["user_id"], name: "index_short_urls_on_user_id_and_user_type"
   end
 

@@ -1,10 +1,12 @@
 class ShortUrl < ApplicationRecord
   belongs_to :user
 
-  before_save :generate_short_url
+
   validate :url_check
   validates :user_id, presence: true
+  validates :short_url, uniqueness: true
   validates_length_of :short_url, :maximum => 6, :allow_blank => true
+  before_save :generate_short_url
 
   def url_check
     #uri = URI(self.original_url.to_s)
