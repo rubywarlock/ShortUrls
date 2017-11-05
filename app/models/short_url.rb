@@ -17,9 +17,20 @@ class ShortUrl < ApplicationRecord
     http.use_ssl = false
 
     request = Net::HTTP::Get.new(uri.request_uri)
-    res = http.request(request)
+    code = 200
+    begin
+      res = http.request(request)
+      if res.code.to_i > 400
+        code = res.code
+      end
+    rescue
+      code = 500
+    end
 
-    if res.code.to_i > 400
+
+
+    #if res.code.to_i > 400
+    if code > 400
       errors.add(:original_url, "This doesn't appear to be an valid site.")
     end
   end
