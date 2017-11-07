@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :job_managers
+  #get '/job' => "job_managers#index"
+  #get '/job/run' => "job_managers#new"
+  #post '/job/run' => "job_managers#new"
   get 'home_pages/Index'
 
   devise_for :users

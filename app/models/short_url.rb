@@ -17,9 +17,11 @@ class ShortUrl < ApplicationRecord
     http.use_ssl = false
 
     request = Net::HTTP::Get.new(uri.request_uri)
+    code = 0
+    error = ""
     begin
       res = http.request(request)
-      code = res.code if res.code.to_i > 400
+      code = res.code.to_i if res.code.to_i > 400
     rescue Errno::ECONNRESET => error
       code = 500
     end
@@ -53,6 +55,14 @@ class ShortUrl < ApplicationRecord
       half_url = 6.times.map { chars.sample }.join
       self.short_url = "#{users_path}/#{half_url}"
     end
+  end
+
+  def self.clear_db
+    #ShortUrl.where('created_at >= ?', 1.minute.ago)
+    puts "=========================================================================================="
+    records_for_remove = where('created_at <= ?', 1.minute.ago)
+    records_for_remove.destroy_all
+    puts "=========================================================================================="
   end
 
 

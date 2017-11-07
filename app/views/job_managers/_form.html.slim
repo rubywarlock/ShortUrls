@@ -1,0 +1,13 @@
+/= form_for @job_manager do |f|
+= form_for :job_managers, url: "/job_managers" do |f|
+  /- if @job_manager.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@job_manager.errors.count, "error")} prohibited this job_manager from being saved:"
+      ul
+        - @job_manager.errors.full_messages.each do |message|
+          li = message
+
+  .form-group
+    = f.label :name, class: "form-control"
+    = f.text_field :name, class: "form-control"
+  .actions = f.submit class: "btn btn-primary"

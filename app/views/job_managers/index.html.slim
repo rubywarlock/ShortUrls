@@ -1,0 +1,15 @@
+h1 Listing job_managers
+
+table
+  thead
+    tr
+      th Name
+
+  tbody
+    - @job_managers.each do |job_manager|
+      tr
+        td = job_manager
+
+br
+
+= link_to 'New Job manager', new_job_manager_path
