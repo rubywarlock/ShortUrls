@@ -28,7 +28,7 @@ class JobManagersController < ApplicationController
     #TimeLogJob.set(wait: 2.seconds).perform_async
 
 
-    ShortUrlJob.set(wait: 1.minute).perform_later
+    ShortUrlJob.perform_now
     redirect_to job_managers_path
     #ClearShortUrlsJob.set(wait: 1.minute).perform_later(ShortUrl.where('created_at >= ?', 1.minute.ago))
 

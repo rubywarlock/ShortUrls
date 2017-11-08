@@ -58,11 +58,8 @@ class ShortUrl < ApplicationRecord
   end
 
   def self.clear_db
-    #ShortUrl.where('created_at >= ?', 1.minute.ago)
-    puts "=========================================================================================="
-    records_for_remove = where('created_at <= ?', 1.minute.ago)
-    records_for_remove.destroy_all
-    puts "=========================================================================================="
+    where('created_at <= ?', 1.minute.ago).destroy_all
+    ShortUrlJob.new(record).enqueue(wait: 1.minute)
   end
 
 
