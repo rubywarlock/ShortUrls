@@ -1,14 +1,19 @@
 h1 Listing job_managers
 
-table
+table class="table table-striped"
   thead
     tr
       th Name
+      th Status
+      th colspan="2"
 
   tbody
     - @job_managers.each do |job_manager|
       tr
-        td = job_manager
+        td = job_manager.name
+        td = job_manager.job_task == "start" ? "Running":"Stopped"
+        td = link_to "start", job_start_path(id: job_manager.id)
+        td = link_to "stop", job_stop_path(id: job_manager.id)
 
 br
 

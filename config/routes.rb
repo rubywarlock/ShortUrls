@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :job_managers
+  get "/job/:id/start" => "job_managers#job_start", as: :job_start
+  get "/job/:id/stop" => "job_managers#job_stop", as: :job_stop
   #get '/job' => "job_managers#index"
   #get '/job/run' => "job_managers#new"
   #post '/job/run' => "job_managers#new"

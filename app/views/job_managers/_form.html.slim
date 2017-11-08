@@ -1,6 +1,6 @@
 /= form_for @job_manager do |f|
-= form_for :job_managers, url: "/job_managers" do |f|
-  /- if @job_manager.errors.any?
+= form_for @job_manager do |f|
+  - if @job_manager.errors.any?
     #error_explanation
       h2 = "#{pluralize(@job_manager.errors.count, "error")} prohibited this job_manager from being saved:"
       ul
@@ -8,6 +8,12 @@
           li = message
 
   .form-group
-    = f.label :name, class: "form-control"
+    = f.label :name
     = f.text_field :name, class: "form-control"
+
+  .form-group
+    = f.label :job_task
+    = "  "
+    = f.select(:job_task, options_for_select([['start','start'],['stop','stop']]), class: "form-control")
+
   .actions = f.submit class: "btn btn-primary"

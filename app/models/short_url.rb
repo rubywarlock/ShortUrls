@@ -56,11 +56,4 @@ class ShortUrl < ApplicationRecord
       self.short_url = "#{users_path}/#{half_url}"
     end
   end
-
-  def self.clear_db
-    where('created_at <= ?', 1.minute.ago).destroy_all
-    #ShortUrlJob.set(wait: 1.minute).perform_now
-  end
-
-
 end
