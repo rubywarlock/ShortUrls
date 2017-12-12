@@ -22,23 +22,10 @@ class JobManagersController < ApplicationController
   def edit
   end
 
-  def job_start
-    unless JobManager.job_running?
-      ShortUrlJob.set(wait: 1.minute).perform_later
-      job_update("start")
-    end
-  end
-
-  def job_stop
-    if JobManager.job_running?
-      job_update("stop")
-    end
-  end
-
-  def job_update(status)
+  def update_status(status)
     @job_manager = JobManager.find(params[:id])
     respond_to do |format|
-      if @job_manager.job_update(status)
+      if @job_manager.update_status(status: status)
         format.html { redirect_to @job_manager, notice: 'Job manager was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_manager }
       else

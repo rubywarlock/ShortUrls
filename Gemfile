@@ -36,9 +36,9 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 
 #gem 'certified', platforms: [:mri, :mingw, :x64_mingw]
 gem 'devise'
-gem 'shortener'
+#gem 'shortener'
 
-gem 'faraday'
+#gem 'faraday'
 
 #gem 'bootstrap-sass', '~> 3.3.3'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
@@ -47,6 +47,7 @@ gem 'jquery-rails'
 gem 'http'
 gem 'slim'
 gem 'slim-rails'
+gem 'http'
 
 group :production do
   gem 'postgresql'
