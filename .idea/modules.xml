@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShortUrlApp.iml" filepath="$PROJECT_DIR$/.idea/ShortUrlApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ShortUrls.iml" filepath="$PROJECT_DIR$/.idea/ShortUrls.iml" />
     </modules>
   </component>
 </project>

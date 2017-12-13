@@ -16,12 +16,14 @@ table class="table table-striped"
       tr
         td= short_url.user_id
         td= short_url.original_url
-        td= link_to short_url.short_url, short_url.original_url
+        td= link_to "#{short_url.short_url}", "#{short_url.original_url}"
         td= short_url.shared ? "true":"false"
-        td= link_to 'Show', short_url
-        td= link_to 'Edit', edit_short_url_path(short_url)
-        td= link_to 'Destroy', short_url, method: :delete, data: { confirm: 'Are you sure?' }
+        = render "short_urls/for_signed_users", short_url: short_url
 
 br
 
-= link_to 'New Short Url', new_short_url_path
+- if user_signed_in?
+	= link_to 'New Short Url', new_short_url_path
+- else
+	= link_to "SIGN IN", new_user_session_path, class: "btn btn-primary btn-lg", role: "button"
+

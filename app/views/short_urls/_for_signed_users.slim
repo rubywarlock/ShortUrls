@@ -1,0 +1,16 @@
+- if user_signed_in?
+	td= link_to 'Show', short_url
+	td= link_to 'Edit', edit_short_url_path(short_url)
+	td= link_to 'Destroy', short_url, method: :delete, data: {confirm: 'Are you sure?'}
+- else
+	= link_to "SIGN IN", new_user_session_path, class: "btn btn-primary btn-lg", role: "button"
+
+
+/- if user_signed_in?
+	= render "short_urls/list"
+/- else
+	div class="jumbotron center-block"
+		div style="margin-left: auto; margin-right: auto; width: 200px; test-align: center"
+			div class="nav-item"= link_to "SIGN IN", new_user_session_path, class: "btn btn-primary btn-lg", role: "button"
+			div class="nav-item justify-content-center" style="justify-content: space-around; test-align: center" OR
+			div class="nav-item"= link_to "SIGN UP", new_user_registration_path, class: "btn btn-primary btn-lg", role: "button"

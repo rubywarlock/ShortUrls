@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "/urls/shared" => "short_urls#index", as: :shared_urls
   get "/urls" => "short_urls#index", as: :all_urls
+  match "/user/:id/url/:short_url" => "users#open", via: :get, as: :go_on_url
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/users" => "users#index"

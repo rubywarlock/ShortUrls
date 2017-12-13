@@ -1,37 +1,27 @@
 class ShortUrlsController < ApplicationController
   before_action :set_short_url, only: [:show, :edit, :update, :destroy]
 
-  # GET /short_urls
-  # GET /short_urls.json
   def index
     @short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
     #@short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
   end
 
-  # GET /short_urls/1
-  # GET /short_urls/1.json
   def show
     redirect_to @short_url.original_url
   end
 
   def show_short_url
-
   end
 
-  # GET /short_urls/new
   def new
     @short_url = ShortUrl.new
   end
 
-  # GET /short_urls/1/edit
   def edit
   end
 
-  # POST /short_urls
-  # POST /short_urls.json
   def create
     @short_url = ShortUrl.new(short_url_params)
-
     respond_to do |format|
       if @short_url.save
         format.html { redirect_to user_path(current_user), notice: 'Short url was successfully created.' }
@@ -43,8 +33,6 @@ class ShortUrlsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /short_urls/1
-  # PATCH/PUT /short_urls/1.json
   def update
     respond_to do |format|
       if @short_url.update(short_url_params)
@@ -57,8 +45,6 @@ class ShortUrlsController < ApplicationController
     end
   end
 
-  # DELETE /short_urls/1
-  # DELETE /short_urls/1.json
   def destroy
     @short_url.destroy
     respond_to do |format|
@@ -69,12 +55,11 @@ class ShortUrlsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_short_url
-      @short_url = ShortUrl.find(params[:id])
-    end
+  def set_short_url
+    @short_url = ShortUrl.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def short_url_params
-      params.require(:short_url).permit(:user_id, :shared, :original_url, :short_url)
-    end
+  def short_url_params
+    params.require(:short_url).permit(:user_id, :shared, :original_url, :short_url)
+  end
 end

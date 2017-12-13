@@ -47,7 +47,6 @@ gem 'jquery-rails'
 gem 'http'
 gem 'slim'
 gem 'slim-rails'
-gem 'http'
 
 group :production do
   gem 'postgresql'

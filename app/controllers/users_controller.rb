@@ -23,6 +23,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def open
+    @url = ShortUrl.where(short_url: params[:short_url]).first
+    redirect_to @url.original
+    return
+  end
+
   # POST /users
   # POST /users.json
   def create

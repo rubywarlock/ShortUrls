@@ -14,7 +14,7 @@ table class="table table-striped"
     - @shared_urls.each do |url|
       tr
         td= url.original
-        td= link_to url.short
+        td= link_to "#{url.short}", go_on_url_path(id: url.user.id, short_url: url.short)
         td= url.shared
         td= link_to 'Edit', edit_short_url_path(url)
         td= link_to 'Destroy', url, method: :delete, data: {confirm: 'Are you sure?'}
