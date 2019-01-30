@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
   get "/user/:id" => "users#show", as: :user
 
+  get "/:short_url" => "short_urls#open"
+
   root "home_pages#Index"
 end

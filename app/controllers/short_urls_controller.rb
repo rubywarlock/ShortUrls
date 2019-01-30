@@ -10,7 +10,12 @@ class ShortUrlsController < ApplicationController
     redirect_to @short_url.original_url
   end
 
-  def show_short_url
+  def open
+    if @short_url = ShortUrl.find_by(short_url: params[:short_url])
+      redirect_to @short_url.original_url
+    else
+      redirect_to root_path
+    end
   end
 
   def new
