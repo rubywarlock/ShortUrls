@@ -5,6 +5,8 @@ class ShortUrl < ApplicationRecord
   belongs_to :user
   before_save :generate_short_url
 
+  scope :shared, -> { where(shared: true) }
+
   validates :original_url, url: true
 
   validates :user_id, presence: true

@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190130092942) do
-
-  create_table "job_managers", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "job_task"
-    t.string "status"
-  end
+ActiveRecord::Schema.define(version: 20190130114538) do
 
   create_table "short_urls", force: :cascade do |t|
     t.integer "user_id"
@@ -28,7 +20,7 @@ ActiveRecord::Schema.define(version: 20190130092942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "shared"
-    t.boolean "permanent"
+    t.boolean "permanent", default: false
     t.index ["short_url"], name: "index_short_urls_on_short_url", unique: true
     t.index ["user_id"], name: "index_short_urls_on_user_id_and_user_type"
   end

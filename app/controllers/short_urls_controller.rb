@@ -2,7 +2,8 @@ class ShortUrlsController < ApplicationController
   before_action :set_short_url, only: [:show, :edit, :update, :destroy]
 
   def index
-    @short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
+    # @short_urls = ShortUrl.where(shared: true)
+    @short_urls = ShortUrl.shared
     #@short_urls = request.path_info.include?('shared') ? ShortUrl.where(shared: true) : ShortUrl.all
   end
 
@@ -26,7 +27,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def create
-    @short_url = ShortUrl.new(short_url_params)
+    @short_url = ShortUrl.new(url_params)
     respond_to do |format|
       if @short_url.save
         format.html { redirect_to user_path(current_user), notice: 'Short url was successfully created.' }
@@ -40,7 +41,7 @@ class ShortUrlsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @short_url.update(short_url_params)
+      if @short_url.update(update_url_params)
         format.html { redirect_to user_path(current_user), notice: 'Short url was successfully updated.' }
         format.json { render :show, status: :ok, location: cerrent_user }
       else
@@ -64,7 +65,7 @@ class ShortUrlsController < ApplicationController
     @short_url = ShortUrl.find(params[:id])
   end
 
-  def short_url_params
-    params.require(:short_url).permit(:user_id, :shared, :permanent, :original_url, :short_url)
+  def url_params
+    params.require(:short_url).permit(:user_id, :shared, :permanent, :original_url)
   end
 end

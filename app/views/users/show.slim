@@ -8,14 +8,17 @@ table class="table table-striped"
       th original url
       th short url
       th shared
-      th collspan="2"
+      th permanent
+      th colspan="2" actions
 
   tbody
     - @shared_urls.each do |url|
       tr
-        td= url.original
+        td
+          span title="#{url.original}" = url.original.truncate(27)
         td= link_to "#{url.short}", go_on_url_path(id: url.user.id, short_url: url.short)
         td= url.shared
+        td= url.permanent
         td= link_to 'Edit', edit_short_url_path(url)
         td= link_to 'Destroy', url, method: :delete, data: {confirm: 'Are you sure?'}
 

@@ -10,13 +10,14 @@ table class="table table-striped"
       th Short url
       th Shared
       th Permanent
-      th colspan="3"
+      th colspan="3" actions
 
   tbody
     - @short_urls.each do |short_url|
       tr
         td= short_url.user_id
-        td= short_url.original_url
+        td
+          span title="#{short_url.original_url}" = short_url.original_url.truncate(27)
         td= link_to "#{short_url.short_url}", "#{short_url.original_url}"
         td= short_url.shared ? "true" : "false"
         td= short_url.permanent ? "true" : "false"
