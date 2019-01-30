@@ -1,5 +1,5 @@
 class ShortUrlsController < ApplicationController
-  before_action :set_short_url, only: [:show, :edit, :update, :destroy]
+  before_action :set_short_url, only: [:edit, :update, :destroy]
 
   def index
     # @short_urls = ShortUrl.where(shared: true)
@@ -8,14 +8,18 @@ class ShortUrlsController < ApplicationController
   end
 
   def show
-    redirect_to @short_url.original_url
+    if @short_url = ShortUrl.find_by(short_url: params[:short_url])
+      redirect_to @short_url.original_url
+    else
+      redirect_to shared_urls_path
+    end
   end
 
   def open
     if @short_url = ShortUrl.find_by(short_url: params[:short_url])
       redirect_to @short_url.original_url
     else
-      redirect_to root_path
+      redirect_to shared_urls_path
     end
   end
 
