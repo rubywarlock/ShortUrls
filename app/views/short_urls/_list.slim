@@ -9,7 +9,8 @@ table class="table table-striped"
       th Original url
       th Short url
       th Shared
-      th colspan="4"
+      th Permanent
+      th colspan="3"
 
   tbody
     - @short_urls.each do |short_url|
@@ -17,7 +18,8 @@ table class="table table-striped"
         td= short_url.user_id
         td= short_url.original_url
         td= link_to "#{short_url.short_url}", "#{short_url.original_url}"
-        td= short_url.shared ? "true":"false"
+        td= short_url.shared ? "true" : "false"
+        td= short_url.permanent ? "true" : "false"
         = render "short_urls/for_signed_users", short_url: short_url
 
 br

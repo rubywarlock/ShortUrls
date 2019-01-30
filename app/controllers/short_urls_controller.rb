@@ -65,6 +65,6 @@ class ShortUrlsController < ApplicationController
   end
 
   def short_url_params
-    params.require(:short_url).permit(:user_id, :shared, :original_url, :short_url)
+    params.require(:short_url).permit(:user_id, :shared, :permanent, :original_url, :short_url)
   end
 end
