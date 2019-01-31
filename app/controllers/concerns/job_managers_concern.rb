@@ -1,6 +1,7 @@
 module AddonsForJobManagers
-  extend ActiveSupport::Concern
+  # extend ActiveSupport::Concern
 
+=begin
   included do
     #attr_reader :month, :contests
     #before_filter :build_month_lists
@@ -24,4 +25,5 @@ module AddonsForJobManagers
   def update_status(status)
     update(status: status)
   end
+=end
 end

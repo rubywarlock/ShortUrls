@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
+
   def new
     @user = User.new
   end
@@ -25,14 +26,14 @@ class UsersController < ApplicationController
 
   def open
     @url = ShortUrl.where(short_url: params[:short_url]).first
-    redirect_to @url.original
+    redirect_to @url.original_url
     return
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     respond_to do |format|
       if @user.save

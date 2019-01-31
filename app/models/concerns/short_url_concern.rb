@@ -16,7 +16,7 @@ module ShortUrlConcern
 		
 		begin
 			puts "============================================================================= ONE"
-			puts "code \"#{code}\", status \"#{status}\""
+			puts "code \"#{@code}\", status \"#{@status}\""
 			puts "URI \"#{uri.request_uri}\""
 			
 			res = http.request(request) rescue false

@@ -27,25 +27,30 @@ class ShortUrlsController < ApplicationController
     @short_url = ShortUrl.new
   end
 
-  def edit
-  end
-
   def create
-    @short_url = ShortUrl.new(url_params)
+    @short_url = ShortUrl.new url_params
+
     respond_to do |format|
       if @short_url.save
+
+        run_clean_job unless @short_url.permanent
+
         format.html { redirect_to user_path(current_user), notice: 'Short url was successfully created.' }
         format.json { render :show, status: :created, location: cerrent_user }
       else
         format.html { render :new }
         format.json { render json: @short_url.errors, status: :unprocessable_entity }
+        end›
       end
     end
   end
 
+  def edit
+  end
+
   def update
     respond_to do |format|
-      if @short_url.update(update_url_params)
+      if @short_url.update(url_params)
         format.html { redirect_to user_path(current_user), notice: 'Short url was successfully updated.' }
         format.json { render :show, status: :ok, location: cerrent_user }
       else
@@ -64,12 +69,16 @@ class ShortUrlsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  def url_params
+    params.require(:short_url).permit(:user_id, :shared, :permanent, :original_url)
+  end
+
   def set_short_url
     @short_url = ShortUrl.find(params[:id])
   end
 
-  def url_params
-    params.require(:short_url).permit(:user_id, :shared, :permanent, :original_url)
+  def run_clean_job
+    ShortUrlJob.set(wait: 1.minute).perform_later
   end
 end
