@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def open
     @url = ShortUrl.where(short_url: params[:short_url]).first
-    redirect_to @url.original_url
+    redirect_to @url.original
     return
   end
 
