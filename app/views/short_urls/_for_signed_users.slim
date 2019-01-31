@@ -1,5 +1,4 @@
-- if user_signed_in?
-	td= link_to 'Show', short_url
+- if short_url.is_url_owner?(user_signed_in?, current_user)
 	td= link_to 'Edit', edit_short_url_path(short_url)
 	td= link_to 'Destroy', short_url, method: :delete, data: {confirm: 'Are you sure?'}
 

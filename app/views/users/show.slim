@@ -1,25 +1,27 @@
-h3 Show User
+h3
+  |User
+  '
+  = @user.id
 
-h4 SHARED URLs
+h5 SHARED URLS
 
 table class="table table-striped"
   thead
     tr
       th original url
       th short url
-      th shared
       th permanent
-      th colspan="2" actions
+      th colspan="3" actions
 
   tbody
     - @shared_urls.each do |url|
       tr
         td
-          span title="#{url.original}" = url.original.truncate(27)
-        td= link_to "#{url.short}", go_on_url_path(id: url.user.id, short_url: url.short)
-        td= url.shared
-        td= url.permanent
-        td= link_to 'Edit', edit_short_url_path(url)
-        td= link_to 'Destroy', url, method: :delete, data: {confirm: 'Are you sure?'}
+          span title="#{url.original_url}"
+            = url.original_url.truncate(27)
+        td= link_to "https://vstestsurl.herokuapp.com/#{url.short_url}", "https://vstestsurl.herokuapp.com/#{url.short_url}"
+        td= url.shared ? "true" : "false"
+        td= url.permanent ? "true" : "false"
+        = render "short_urls/for_signed_users", short_url: url
 
 = link_to "Add URL", new_short_url_path

@@ -1,0 +1,18 @@
+p id="notice"= notice
+
+p
+  strong User:
+  = @short_url.user_id
+
+p
+  strong Original url:
+  = @short_url.original_url
+
+p
+  strong Short url:
+  = @short_url.short_url
+
+- if @short_url.is_url_owner?(user_signed_in?, current_user)
+  = link_to 'Edit', edit_short_url_path(@short_url)
+  ' |
+  = link_to 'Back', short_urls_path

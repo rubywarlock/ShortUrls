@@ -1,5 +1,5 @@
 class ShortUrlsController < ApplicationController
-  before_action :set_short_url, only: [:edit, :update, :destroy]
+  before_action :set_short_url, only: [:show, :edit, :update, :destroy]
 
   def index
     # @short_urls = ShortUrl.where(shared: true)
@@ -8,11 +8,6 @@ class ShortUrlsController < ApplicationController
   end
 
   def show
-    if @short_url = ShortUrl.find_by(short_url: params[:short_url])
-      redirect_to @short_url.original_url
-    else
-      redirect_to shared_urls_path
-    end
   end
 
   def open
@@ -63,7 +58,7 @@ class ShortUrlsController < ApplicationController
   def destroy
     @short_url.destroy
     respond_to do |format|
-      format.html { redirect_to short_urls_url, notice: 'Short url was successfully destroyed.' }
+      format.html { redirect_to shared_urls_path, notice: 'Short url was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
