@@ -7,20 +7,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     #@shared_urls = @user.short_urls.where(shared: true).and('created_at <= ?', 1.minute.ago)
     @shared_urls = @user.short_urls.where(shared: true)
+    @private_urls = @user.short_urls.where(shared: false)
   end
-
-  # GET /users/new
 
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
   end
 

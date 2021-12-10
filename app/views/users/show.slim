@@ -3,25 +3,48 @@ h3
   '
   = @user.id
 
-h5 SHARED URLS
+.container
+  - if @private_urls && (current_user == @user)
+    h5 PRIVATE URLS
 
-table class="table table-striped"
-  thead
-    tr
-      th original url
-      th short url
-      th permanent
-      th colspan="3" actions
+    table class="table table-striped"
+      thead
+        tr
+          th original url
+          th short url
+          th permanent
+          th colspan="3" actions
 
-  tbody
-    - @shared_urls.each do |url|
-      tr
-        td
-          span title="#{url.original_url}"
-            = url.original_url.truncate(27)
-        td= link_to "https://vstestsurl.herokuapp.com/#{url.short_url}", "https://vstestsurl.herokuapp.com/#{url.short_url}"
-        td= url.shared ? "true" : "false"
-        td= url.permanent ? "true" : "false"
-        = render "short_urls/for_signed_users", short_url: url
+      tbody
+        - @private_urls.each do |url|
+          tr
+            td
+              span title="#{url.original_url}"
+                = url.original_url.truncate(27)
+            td= link_to "https://sim-url.herokuapp.com/#{url.short_url}", "https://sim-url.herokuapp.com/#{url.short_url}"
+            td= url.permanent ? "true" : "false"
+            = render "short_urls/for_signed_users", short_url: url
+
+.container style="margin-top: 60px"
+  - if @shared_urls
+    h5 SHARED URLS
+
+    table class="table table-striped"
+      thead
+        tr
+          th original url
+          th short url
+          th permanent
+          th colspan="3" actions
+
+      tbody
+        - @shared_urls.each do |url|
+          tr
+            td
+              span title="#{url.original_url}"
+                = url.original_url.truncate(27)
+            td= link_to "https://sim-url.herokuapp.com/#{url.short_url}", "https://sim-url.herokuapp.com/#{url.short_url}"
+            td= url.permanent ? "true" : "false"
+            = render "short_urls/for_signed_users", short_url: url
 
 = link_to "Add URL", new_short_url_path
