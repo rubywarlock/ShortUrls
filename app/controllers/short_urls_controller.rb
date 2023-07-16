@@ -23,7 +23,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def create
-    @short_url = ShortUrl.new url_params
+    @short_url = ShortUrl.new(url_params)
 
     respond_to do |format|
       if @short_url.save
@@ -35,7 +35,6 @@ class ShortUrlsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @short_url.errors, status: :unprocessable_entity }
-        end›
       end
     end
   end

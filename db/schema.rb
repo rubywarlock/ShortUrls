@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190130114538) do
+ActiveRecord::Schema.define(version: 2019_01_30_114538) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "short_urls", force: :cascade do |t|
     t.integer "user_id"
@@ -22,7 +25,6 @@ ActiveRecord::Schema.define(version: 20190130114538) do
     t.boolean "shared"
     t.boolean "permanent", default: false
     t.index ["short_url"], name: "index_short_urls_on_short_url", unique: true
-    t.index ["user_id"], name: "index_short_urls_on_user_id_and_user_type"
   end
 
   create_table "users", force: :cascade do |t|
