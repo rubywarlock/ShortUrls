@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.7.7'
+ruby '3.1.4'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 6.1.3.2'
 gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -36,6 +36,8 @@ gem 'http'
 gem 'slim'
 gem 'slim-rails'
 
+gem 'psych', '< 4'
+
 group :development, :test do
   gem 'byebug', '~> 11.1', '>= 11.1.3', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry', '~> 0.14.1'
@@ -55,6 +57,8 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'listen'
+  gem 'spring'
 end
 
 gem 'tzinfo-data' #, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
