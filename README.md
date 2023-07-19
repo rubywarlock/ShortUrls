@@ -7,9 +7,9 @@ https://sim-url.herokuapp.com
 Урлы могут быть пермаментными, либо удаляются джобой которая запускается  
 через планировщик Heroku.  
 
-ruby: 3.1.4
-rails: 6.1
-db: postgresql
+ruby: 3.1.4  
+rails: 6.1  
+db: postgresql  
 
 Для тестов используются стандартные тесты(minitest), faker, FactoryBot,
 simplecov.  
